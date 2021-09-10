@@ -18,6 +18,7 @@ spec:
       containers:
       - name: myapp
         image: chintharasapalem/adjust:tagversion
+        restartPolicy: Always        
         ports:
         - containerPort: 80
           
