@@ -17,10 +17,10 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: chintharasapalem/adjust:tagversion
-        restartPolicy: Always        
+        image: chintharasapalem/adjust:tagversion       
         ports:
         - containerPort: 80
+      restartPolicy: Always
           
 ---
 apiVersion: v1
