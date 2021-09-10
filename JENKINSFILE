@@ -6,14 +6,14 @@ pipeline{
     stages{
         stage('Build docker image'){
             steps{
-                sh "docker build . -t pavancool7/newapp:${version}"
+                sh "docker build . -t chintharasapalem/adjust:${version}"
             }
         }
         stage('Push docker file to Docker Hub'){
             steps{
                 withCredentials([string(credentialsId: 'docker-hub-pass', variable: 'dockerpass')]) {
-                sh "docker login -u pavancool7 -p ${dockerpass}"
-                sh "docker push pavancool7/newapp:${version}"
+                sh "docker login -u chintharasapalem -p ${dockerpass}"
+                sh "docker push chintharasapalem/adjust:${version}"
                 }   
             }
         }
@@ -23,8 +23,8 @@ pipeline{
                 sh "chmod +x verchange.sh"
                 sh "./verchange.sh ${version}"
                 sh "cat myapp.yml"
-                sh "scp myapp.yml ubuntu@3.136.86.221:~/"
-                sh "ssh ubuntu@3.136.86.221 kubectl apply -f myapp.yml"
+                //sh "scp myapp.yml ubuntu@3.136.86.221:~/"
+                //sh "ssh ubuntu@3.136.86.221 kubectl apply -f myapp.yml"
             }
         }
     }
